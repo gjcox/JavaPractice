@@ -27,10 +27,10 @@ public final class Streams {
     }
 
     /**
-     * Converts an array of strings to uppercase or lowercase using streams. 
+     * Converts an array of strings to uppercase or lowercase using streams.
      * 
-     * @param input array of strings
-     * @param toUpper true to change to upper case; false to change to lower case 
+     * @param input   array of strings
+     * @param toUpper true to change to upper case; false to change to lower case
      * @return an array of strings with consistent casing
      */
     public static String[] batchChangeCase(String[] input, boolean toUpper) {
@@ -39,7 +39,17 @@ public final class Streams {
                 .toArray(String[]::new);
     }
 
+    /**
+     * Calculates the sum of all even or all odd numbers in a list using streams. 
+     * 
+     * @param nums integers to sum 
+     * @param sumEvens true to sum evens; false to sum odds 
+     * @return the sum of either all even or all odd numbers in nums 
+     */
     public static int sumAllEvenOrOdd(List<Integer> nums, boolean sumEvens) {
-        return 0; 
+        return Stream.of(nums.toArray(new Integer[0]))
+                .filter(i -> (i % 2 == 0) == sumEvens)
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 }
