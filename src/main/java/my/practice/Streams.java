@@ -25,6 +25,13 @@ public final class Streams {
                 .average();
     }
 
+    /**
+     * Converts an array of strings to uppercase or lowercase using streams. 
+     * 
+     * @param input array of strings
+     * @param toUpper true to change to upper case; false to change to lower case 
+     * @return an array of strings with consistent casing
+     */
     public static String[] batchChangeCase(String[] input, boolean toUpper) {
         return Stream.of(input)
                 .map(str -> toUpper ? str.toUpperCase() : str.toLowerCase())
