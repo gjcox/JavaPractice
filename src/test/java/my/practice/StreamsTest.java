@@ -57,7 +57,7 @@ class StreamsTest {
         String[] input = new String[] { "lower" };
         String[] output = Streams.batchChangeCase(input, false);
         for (String string : output) {
-            assertFalse(string.matches("[A-Z]"));
+            assertFalse(string.matches("[A-Z]+"));
         }
     }
 
@@ -66,7 +66,7 @@ class StreamsTest {
         String[] input = new String[] { "UPPER" };
         String[] output = Streams.batchChangeCase(input, false);
         for (String string : output) {
-            assertFalse(string.matches("[A-Z]"));
+            assertFalse(string.matches("[A-Z]+"));
         }
     }
 
@@ -75,7 +75,7 @@ class StreamsTest {
         String[] input = new String[] { "UPPER" };
         String[] output = Streams.batchChangeCase(input, true);
         for (String string : output) {
-            assertFalse(string.matches("[a-z]"));
+            assertFalse(string.matches("[a-z]+"));
         }
     }
 
@@ -84,7 +84,7 @@ class StreamsTest {
         String[] input = new String[] { "UPPER" };
         String[] output = Streams.batchChangeCase(input, true);
         for (String string : output) {
-            assertFalse(string.matches("[a-z]"));
+            assertFalse(string.matches("[a-z]+"));
         }
     }
 
@@ -93,7 +93,7 @@ class StreamsTest {
         String[] input = new String[] { "lower", "UPPER" };
         String[] output = Streams.batchChangeCase(input, false);
         for (String string : output) {
-            assertFalse(string.matches("[A-Z]"));
+            assertFalse(string.matches("[A-Z]+"));
         }
     }
 
@@ -102,7 +102,8 @@ class StreamsTest {
         String[] input = new String[] { "lower", "UPPER" };
         String[] output = Streams.batchChangeCase(input, true);
         for (String string : output) {
-            assertFalse(string.matches("[a-z]"));
+            assertFalse(string.matches("[a-z]+"));
         }
     }
+
 }
