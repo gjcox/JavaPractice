@@ -1,5 +1,6 @@
 package my.practice;
 
+import java.util.List;
 import java.util.OptionalDouble;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -36,5 +37,9 @@ public final class Streams {
         return Stream.of(input)
                 .map(str -> toUpper ? str.toUpperCase() : str.toLowerCase())
                 .toArray(String[]::new);
+    }
+
+    public static int sumAllEvenOrOdd(List<Integer> nums, boolean sumEvens) {
+        return 0; 
     }
 }

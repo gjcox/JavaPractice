@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 class StreamsTest {
@@ -124,4 +128,60 @@ class StreamsTest {
         }
     }
 
+    // Even or odd summation tests
+    @Test
+    void sumAllEvenOrOdd_sumEvenEmptyList_zero() {
+        List<Integer> input = new ArrayList<>();
+        int output = Streams.sumAllEvenOrOdd(input, true);
+        assertEquals(0, output);
+    }
+
+    @Test
+    void sumAllEvenOrOdd_sumOddEmptyList_zero() {
+        List<Integer> input = new ArrayList<>();
+        int output = Streams.sumAllEvenOrOdd(input, false);
+        assertEquals(0, output);
+    }
+
+    @Test
+    void sumAllEvenOrOdd_sumEvenAllOdd_zero() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1, 3, 5, 7 });
+        double output = Streams.sumAllEvenOrOdd(input, true);
+        assertEquals(0, output);
+    }
+
+    @Test
+    void sumAllEvenOrOdd_sumOddAllEven_zero() {
+        List<Integer> input = Arrays.asList(new Integer[] { 2, 4, 6, 8 });
+        double output = Streams.sumAllEvenOrOdd(input, false);
+        assertEquals(0, output);
+    }
+
+    @Test
+    void sumAllEvenOrOdd_sumEvenAllEven_twenty() {
+        List<Integer> input = Arrays.asList(new Integer[] { 2, 4, 6, 8 });
+        double output = Streams.sumAllEvenOrOdd(input, true);
+        assertEquals(20, output);
+    }
+
+    @Test
+    void sumAllEvenOrOdd_sumOddAllOdd_sixteen() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1, 3, 5, 7 });
+        double output = Streams.sumAllEvenOrOdd(input, false);
+        assertEquals(16, output);
+    }
+
+    @Test
+    void sumAllEvenOrOdd_sumEvenMixed_twenty() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1, 3, 5, 7, 2, 4, 6, 8 });
+        double output = Streams.sumAllEvenOrOdd(input, true);
+        assertEquals(20, output);
+    }
+
+    @Test
+    void sumAllEvenOrOdd_sumOddMixed_sixteen() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1, 3, 5, 7, 2, 4, 6, 8 });
+        double output = Streams.sumAllEvenOrOdd(input, false);
+        assertEquals(16, output);
+    }
 }
