@@ -23,4 +23,9 @@ public final class Streams {
                 .mapToDouble((int i) -> Double.valueOf(i))
                 .average();
     }
+
+    public static String[] batchChangeCase(String[] input, boolean toUpper) {
+        // TODO 
+        return input;
+    }
 }
