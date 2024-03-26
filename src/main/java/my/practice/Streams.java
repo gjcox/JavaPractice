@@ -2,6 +2,7 @@ package my.practice;
 
 import java.util.OptionalDouble;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * Solutions to these tasks https://www.w3resource.com/java-exercises/stream/
@@ -25,7 +26,8 @@ public final class Streams {
     }
 
     public static String[] batchChangeCase(String[] input, boolean toUpper) {
-        // TODO 
-        return input;
+        return Stream.of(input)
+                .map(str -> toUpper ? str.toUpperCase() : str.toLowerCase())
+                .toArray(String[]::new);
     }
 }
