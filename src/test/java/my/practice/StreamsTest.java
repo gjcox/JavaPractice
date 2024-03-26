@@ -106,4 +106,22 @@ class StreamsTest {
         }
     }
 
+    @Test
+    void batchChangeCase_numbersToUpper_upper() {
+        String[] input = new String[] { "1234" };
+        String[] output = Streams.batchChangeCase(input, true);
+        for (String string : output) {
+            assertFalse(string.matches("[a-z]+"));
+        }
+    }
+
+    @Test
+    void batchChangeCase_numbersAndLettersToUpper_upper() {
+        String[] input = new String[] { "1 one", "2 TWO" };
+        String[] output = Streams.batchChangeCase(input, true);
+        for (String string : output) {
+            assertFalse(string.matches("[a-z]+"));
+        }
+    }
+
 }
