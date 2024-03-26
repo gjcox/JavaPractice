@@ -40,14 +40,14 @@ public final class Streams {
     }
 
     /**
-     * Calculates the sum of all even or all odd numbers in a list using streams. 
+     * Calculates the sum of all even or all odd numbers in a list using streams.
      * 
-     * @param nums integers to sum 
-     * @param sumEvens true to sum evens; false to sum odds 
-     * @return the sum of either all even or all odd numbers in nums 
+     * @param nums     integers to sum
+     * @param sumEvens true to sum evens; false to sum odds
+     * @return the sum of either all even or all odd numbers in nums
      */
     public static int sumAllEvenOrOdd(List<Integer> nums, boolean sumEvens) {
-        return Stream.of(nums.toArray(new Integer[0]))
+        return nums.stream()
                 .filter(i -> (i % 2 == 0) == sumEvens)
                 .mapToInt(Integer::intValue)
                 .sum();
