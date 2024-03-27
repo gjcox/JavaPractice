@@ -1,5 +1,6 @@
 package my.practice;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.stream.IntStream;
@@ -85,7 +86,11 @@ public final class Streams {
      * @param ascending the order to sort in
      */
     public static void sortAlphabetical(List<String> toSort, boolean ascending) {
-        // TODO
-        return;
+        List<String> sorted = toSort.stream()
+                .sorted(ascending ? Comparator.naturalOrder() : Comparator.reverseOrder())
+                .toList();
+        for (int i = 0; i < sorted.size(); i++) {
+            toSort.set(i, sorted.get(i));
+        }
     }
 }
