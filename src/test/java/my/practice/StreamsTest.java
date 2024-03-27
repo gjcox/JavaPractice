@@ -390,4 +390,76 @@ class StreamsTest {
         Integer output = Streams.getMin(input);
         assertEquals(3, output);
     }
+
+    // getSecondLargest tests
+    @Test
+    void getSecondLargest_emptyList_null() {
+        List<Integer> input = new ArrayList<>();
+        Integer output = Streams.getSecondLargest(input);
+        assertNull(output);
+    }
+
+    @Test
+    void getSecondLargest_oneElement_null() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1 });
+        Integer output = Streams.getSecondLargest(input);
+        assertNull(output);
+    }
+
+    @Test
+    void getSecondLargest_twoElementsAsc_one() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1, 2 });
+        Integer output = Streams.getSecondLargest(input);
+        assertEquals(1, output);
+    }
+
+    @Test
+    void getSecondLargest_twoElementsDesc_one() {
+        List<Integer> input = Arrays.asList(new Integer[] { 2, 1 });
+        Integer output = Streams.getSecondLargest(input);
+        assertEquals(1, output);
+    }
+
+    @Test
+    void getSecondLargest_duplicateElement_three() {
+        List<Integer> input = Arrays.asList(new Integer[] { 3, 3, 3, 3 });
+        Integer output = Streams.getSecondLargest(input);
+        assertEquals(3, output);
+    }
+
+    // getSecondSmallest tests
+    @Test
+    void getSecondSmallest_emptyList_null() {
+        List<Integer> input = new ArrayList<>();
+        Integer output = Streams.getSecondSmallest(input);
+        assertNull(output);
+    }
+
+    @Test
+    void getSecondSmallest_oneElement_null() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1 });
+        Integer output = Streams.getSecondSmallest(input);
+        assertNull(output);
+    }
+
+    @Test
+    void getSecondSmallest_twoElementsAsc_two() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1, 2 });
+        Integer output = Streams.getSecondSmallest(input);
+        assertEquals(2, output);
+    }
+
+    @Test
+    void getSecondSmallest_twoElementsDesc_two() {
+        List<Integer> input = Arrays.asList(new Integer[] { 2, 1 });
+        Integer output = Streams.getSecondSmallest(input);
+        assertEquals(2, output);
+    }
+
+    @Test
+    void getSecondSmallest_duplicateElement_three() {
+        List<Integer> input = Arrays.asList(new Integer[] { 3, 3, 3, 3 });
+        Integer output = Streams.getSecondSmallest(input);
+        assertEquals(3, output);
+    }
 }

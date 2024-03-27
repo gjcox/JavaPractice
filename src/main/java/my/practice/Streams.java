@@ -119,4 +119,28 @@ public final class Streams {
                 .min(Integer::compare)
                 .orElse(null);
     }
+
+    /**
+     * Finds the second largest value in a list of integers.
+     * 
+     * @param ints the list of integers
+     * @return the second largest value in the list, or null if the list has fewer
+     *         than 2 elements
+     */
+    public static Integer getSecondLargest(List<Integer> ints) {
+        // TODO
+        return null;
+    }
+
+    /**
+     * Finds the second smallest value in a list of integers.
+     * 
+     * @param ints the list of integers
+     * @return the second smallest value in the list, or null if the list has fewer
+     *         than 2 elements
+     */
+    public static Integer getSecondSmallest(List<Integer> ints) {
+        // TODO
+        return null;
+    }
 }
