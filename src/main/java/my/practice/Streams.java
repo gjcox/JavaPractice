@@ -128,8 +128,11 @@ public final class Streams {
      *         than 2 elements
      */
     public static Integer getSecondLargest(List<Integer> ints) {
-        // TODO
-        return null;
+        return ints.stream()
+                .sorted((a, b) -> Integer.compare(b, a))
+                .skip(1)
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -140,7 +143,10 @@ public final class Streams {
      *         than 2 elements
      */
     public static Integer getSecondSmallest(List<Integer> ints) {
-        // TODO
-        return null;
+        return ints.stream()
+                .sorted()
+                .skip(1)
+                .findFirst()
+                .orElse(null);
     }
 }
