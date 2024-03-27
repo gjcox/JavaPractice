@@ -72,7 +72,8 @@ public final class Streams {
      * @return the number of strings in the list that start with the given letter
      */
     public static int countBeginsWith(List<String> strings, char letter) {
-        // TODO
-        return 0;
+        return (int) strings.stream()
+                .filter(s -> s.startsWith(String.valueOf(letter)))
+                .count();
     }
 }
