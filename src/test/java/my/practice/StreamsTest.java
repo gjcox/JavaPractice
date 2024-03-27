@@ -258,4 +258,63 @@ class StreamsTest {
         int output = Streams.countBeginsWith(input, letter);
         assertEquals(3, output);
     }
+
+    // Alphabetical sorting tests
+    @Test
+    void sortAlphabetical_emptyListAscending_noError() {
+        List<String> list = new ArrayList<>();
+        Streams.sortAlphabetical(list, true);
+        assertTrue(list.isEmpty());
+    }
+
+    @Test
+    void sortAlphabetical_emptyListDescending_noError() {
+        List<String> list = new ArrayList<>();
+        Streams.sortAlphabetical(list, false);
+        assertTrue(list.isEmpty());
+    }
+
+    @Test
+    void sortAlphabetical_unsortedToAscending_ascending() {
+        List<String> list = Arrays.asList(new String[] { "daikon", "banana", "apple", "cantaloupe" });
+        Streams.sortAlphabetical(list, true);
+        assertEquals("apple", list.get(0));
+        assertEquals("banana", list.get(1));
+        assertEquals("cantaloupe", list.get(2));
+        assertEquals("daikon", list.get(3));
+        assertEquals(4, list.size());
+    }
+
+    @Test
+    void sortAlphabetical_unsortedToDescending_ascending() {
+        List<String> list = Arrays.asList(new String[] { "daikon", "banana", "apple", "cantaloupe" });
+        Streams.sortAlphabetical(list, false);
+        assertEquals("apple", list.get(3));
+        assertEquals("banana", list.get(2));
+        assertEquals("cantaloupe", list.get(1));
+        assertEquals("daikon", list.get(0));
+        assertEquals(4, list.size());
+    }
+
+    @Test
+    void sortAlphabetical_ascendingToAscending_ascending() {
+        List<String> list = Arrays.asList(new String[] { "apple", "banana", "cantaloupe", "daikon" });
+        Streams.sortAlphabetical(list, true);
+        assertEquals("apple", list.get(0));
+        assertEquals("banana", list.get(1));
+        assertEquals("cantaloupe", list.get(2));
+        assertEquals("daikon", list.get(3));
+        assertEquals(4, list.size());
+    }
+
+    @Test
+    void sortAlphabetical_ascendingToDescending_descending() {
+        List<String> list = Arrays.asList(new String[] { "apple", "banana", "cantaloupe", "daikon" });
+        Streams.sortAlphabetical(list, false);
+        assertEquals("apple", list.get(3));
+        assertEquals("banana", list.get(2));
+        assertEquals("cantaloupe", list.get(1));
+        assertEquals("daikon", list.get(0));
+        assertEquals(4, list.size());
+    }
 }

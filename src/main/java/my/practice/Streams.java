@@ -76,4 +76,16 @@ public final class Streams {
                 .filter(s -> s.startsWith(String.valueOf(letter)))
                 .count();
     }
+
+    /**
+     * Sorts a list of Strings inplace in ascending or descending alphabetical
+     * order.
+     * 
+     * @param toSort    the list to sort
+     * @param ascending the order to sort in
+     */
+    public static void sortAlphabetical(List<String> toSort, boolean ascending) {
+        // TODO
+        return;
+    }
 }
