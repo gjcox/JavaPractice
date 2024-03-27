@@ -63,4 +63,16 @@ public final class Streams {
     public static <T extends Number> List<T> removeDuplicates(List<T> list) {
         return list.stream().distinct().toList();
     }
+
+    /**
+     * Counts the number of strings in a list that start with a specific letter.
+     * 
+     * @param strings a list of strings
+     * @param letter  the specific letter to base counting off of
+     * @return the number of strings in the list that start with the given letter
+     */
+    public static int countBeginsWith(List<String> strings, char letter) {
+        // TODO
+        return 0;
+    }
 }

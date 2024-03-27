@@ -225,4 +225,37 @@ class StreamsTest {
         Number[] expected = new Number[] { 1, 2, 3, 4 };
         assertArrayEquals(expected, output.toArray(new Number[0]));
     }
+
+    // countBeginsWith tests
+    @Test
+    void countBeginsWith_emptyList_zero() {
+        List<String> input = new ArrayList<>();
+        char letter = 'a';
+        int output = Streams.countBeginsWith(input, letter);
+        assertEquals(0, output);
+    }
+
+    @Test
+    void countBeginsWith_oneBeginsWith_one() {
+        List<String> input = Arrays.asList(new String[] { "apple", "banana", "cantaloupe" });
+        char letter = 'a';
+        int output = Streams.countBeginsWith(input, letter);
+        assertEquals(1, output);
+    }
+
+    @Test
+    void countBeginsWith_oneBeginsWith_none() {
+        List<String> input = Arrays.asList(new String[] { "banana", "cantaloupe", "daikon" });
+        char letter = 'a';
+        int output = Streams.countBeginsWith(input, letter);
+        assertEquals(0, output);
+    }
+
+    @Test
+    void countBeginsWith_allBeginWith_three() {
+        List<String> input = Arrays.asList(new String[] { "apple", "accordion", "antelope" });
+        char letter = 'a';
+        int output = Streams.countBeginsWith(input, letter);
+        assertEquals(3, output);
+    }
 }
