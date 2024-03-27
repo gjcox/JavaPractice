@@ -3,6 +3,7 @@ package my.practice;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -316,5 +317,77 @@ class StreamsTest {
         assertEquals("cantaloupe", list.get(1));
         assertEquals("daikon", list.get(0));
         assertEquals(4, list.size());
+    }
+
+    // getMax tests
+    @Test
+    void getMax_emptyList_null() {
+        List<Integer> input = new ArrayList<>();
+        Integer output = Streams.getMax(input);
+        assertNull(output);
+    }
+
+    @Test
+    void getMax_oneElement_one() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1 });
+        Integer output = Streams.getMax(input);
+        assertEquals(1, output);
+    }
+
+    @Test
+    void getMax_twoElementsAsc_two() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1, 2 });
+        Integer output = Streams.getMax(input);
+        assertEquals(2, output);
+    }
+
+    @Test
+    void getMax_twoElementsDesc_two() {
+        List<Integer> input = Arrays.asList(new Integer[] { 2, 1 });
+        Integer output = Streams.getMax(input);
+        assertEquals(2, output);
+    }
+
+    @Test
+    void getMax_duplicateElement_three() {
+        List<Integer> input = Arrays.asList(new Integer[] { 3, 3, 3, 3 });
+        Integer output = Streams.getMax(input);
+        assertEquals(3, output);
+    }
+
+    // getMin tests
+    @Test
+    void getMin_emptyList_null() {
+        List<Integer> input = new ArrayList<>();
+        Integer output = Streams.getMin(input);
+        assertNull(output);
+    }
+
+    @Test
+    void getMin_oneElement_one() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1 });
+        Integer output = Streams.getMin(input);
+        assertEquals(1, output);
+    }
+
+    @Test
+    void getMin_twoElementsAsc_one() {
+        List<Integer> input = Arrays.asList(new Integer[] { 1, 2 });
+        Integer output = Streams.getMin(input);
+        assertEquals(1, output);
+    }
+
+    @Test
+    void getMin_twoElementsDesc_one() {
+        List<Integer> input = Arrays.asList(new Integer[] { 2, 1 });
+        Integer output = Streams.getMin(input);
+        assertEquals(1, output);
+    }
+
+    @Test
+    void getMin_duplicateElement_three() {
+        List<Integer> input = Arrays.asList(new Integer[] { 3, 3, 3, 3 });
+        Integer output = Streams.getMin(input);
+        assertEquals(3, output);
     }
 }

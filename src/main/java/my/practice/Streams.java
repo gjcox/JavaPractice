@@ -93,4 +93,28 @@ public final class Streams {
             toSort.set(i, sorted.get(i));
         }
     }
+
+    /**
+     * Returns the largest value in a list of integers, or null if the list
+     * is empty.
+     * 
+     * @param ints the list of integers
+     * @return the largest integer in the list
+     */
+    public static Integer getMax(List<Integer> ints) {
+        // TODO
+        return null;
+    }
+
+    /**
+     * Returns the smallest value in a list of integers, or null if the list is
+     * empty.
+     * 
+     * @param ints the list of integers
+     * @return the smallest integer in the list
+     */
+    public static Integer getMin(List<Integer> ints) {
+        // TODO
+        return null;
+    }
 }
