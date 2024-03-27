@@ -61,7 +61,6 @@ public final class Streams {
      * @return a new list that has no duplicates
      */
     public static <T extends Number> List<T> removeDuplicates(List<T> list) {
-        // TODO
-        return list;
+        return list.stream().distinct().toList();
     }
 }
