@@ -102,8 +102,9 @@ public final class Streams {
      * @return the largest integer in the list
      */
     public static Integer getMax(List<Integer> ints) {
-        // TODO
-        return null;
+        return ints.stream()
+                .max(Integer::compare)
+                .orElse(null);
     }
 
     /**
@@ -114,7 +115,8 @@ public final class Streams {
      * @return the smallest integer in the list
      */
     public static Integer getMin(List<Integer> ints) {
-        // TODO
-        return null;
+        return ints.stream()
+                .min(Integer::compare)
+                .orElse(null);
     }
 }
