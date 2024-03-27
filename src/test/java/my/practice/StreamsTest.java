@@ -1,5 +1,6 @@
 package my.practice;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -183,5 +184,45 @@ class StreamsTest {
         List<Integer> input = Arrays.asList(new Integer[] { 1, 3, 5, 7, 2, 4, 6, 8 });
         double output = Streams.sumAllEvenOrOdd(input, false);
         assertEquals(16, output);
+    }
+
+    // Duplicate removal tests
+    @Test
+    void removeDuplicates_emptyList_emptyList() {
+        List<Number> input = new ArrayList<>();
+        List<Number> output = Streams.removeDuplicates(input);
+        assertTrue(output.isEmpty());
+    }
+
+    @Test
+    void removeDuplicates_duplicateDoubles_oneElement() {
+        List<Number> input = Arrays.asList(new Double[] { 1.1, 1.1 });
+        List<Number> output = Streams.removeDuplicates(input);
+        Number[] expected = new Number[] { 1.1 };
+        assertArrayEquals(expected, output.toArray(new Double[0]));
+    }
+
+    @Test
+    void removeDuplicates_twoIntDuplicates_twoElements() {
+        List<Number> input = Arrays.asList(new Integer[] { 1, 2, 1, 2 });
+        List<Number> output = Streams.removeDuplicates(input);
+        Number[] expected = new Number[] { 1, 2 };
+        assertArrayEquals(expected, output.toArray(new Number[0]));
+    }
+
+    @Test
+    void removeDuplicates_mixedNumbers_fourElements() {
+        List<Number> input = Arrays.asList(new Number[] { 1, 2.0, 1.0, 2 });
+        List<Number> output = Streams.removeDuplicates(input);
+        Number[] expected = new Number[] { 1, 2.0, 1.0, 2 };
+        assertArrayEquals(expected, output.toArray(new Number[0]));
+    }
+
+    @Test
+    void removeDuplicates_intsNoDuplicates_fourElements() {
+        List<Number> input = Arrays.asList(new Integer[] { 1, 2, 3, 4 });
+        List<Number> output = Streams.removeDuplicates(input);
+        Number[] expected = new Number[] { 1, 2, 3, 4 };
+        assertArrayEquals(expected, output.toArray(new Number[0]));
     }
 }

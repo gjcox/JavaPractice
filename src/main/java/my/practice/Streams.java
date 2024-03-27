@@ -52,4 +52,16 @@ public final class Streams {
                 .mapToInt(Integer::intValue)
                 .sum();
     }
+
+    /**
+     * Removes duplicates from a list of numbers. Does not affect the original list.
+     * 
+     * @param <T>  a type that extends Number
+     * @param list from which to remove duplicates
+     * @return a new list that has no duplicates
+     */
+    public static <T extends Number> List<T> removeDuplicates(List<T> list) {
+        // TODO
+        return list;
+    }
 }
