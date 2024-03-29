@@ -138,4 +138,5 @@ public class MatrixTest {
         Matrix dot = m1.mult(m4);
         assertEquals(expected, dot);
     }
+
 }
