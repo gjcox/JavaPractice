@@ -18,18 +18,19 @@ public class MatrixTest {
     }
 
     @Test
-    void testGetHeight() {
+    void getHeight_m_3() {
         assertEquals(3, m.getHeight());
     }
 
     @Test
-    void testGetWidth() {
+    void getWidth_m_2() {
         assertEquals(2, m.getWidth());
     }
 
     @Test
-    void testToString() {
+    void toString_m_multiline() {
         String expected = "|  1  2 |\n|  3  4 |\n|  5  6 |\n";
         assertEquals(expected, m.toString());
     }
+
 }
