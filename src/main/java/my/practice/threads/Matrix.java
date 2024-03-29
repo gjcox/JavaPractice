@@ -60,7 +60,15 @@ public class Matrix {
     }
 
     public Matrix add(Matrix other) {
-        // TODO 
-        return null; 
+        if (this.width != other.width || this.height != other.height) {
+            throw new IllegalArgumentException("Only matrices of the same dimensions can be added");
+        }
+        int[][] arr = new int[height][width];
+        for (int row = 0; row < this.height; row++) {
+            for (int col = 0; col < this.width; col++) {
+                arr[row][col] = this.arr[row][col] + other.arr[row][col];
+            }
+        }
+        return new Matrix(arr);
     }
 }
