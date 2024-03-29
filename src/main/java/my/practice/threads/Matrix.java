@@ -44,4 +44,18 @@ public class Matrix {
         }
         return builder.toString();
     }
+
+    public boolean equals(Matrix other) {
+        if (this.width != other.width || this.height != other.height) {
+            return false;
+        }
+        for (int row = 0; row < this.height; row++) {
+            for (int col = 0; col < this.width; col++) {
+                if (this.arr[row][col] != other.arr[row][col]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
