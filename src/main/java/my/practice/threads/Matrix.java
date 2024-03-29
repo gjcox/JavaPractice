@@ -71,4 +71,9 @@ public class Matrix {
         }
         return new Matrix(arr);
     }
+
+    public Matrix mult(Matrix other) {
+        // TODO
+        return null;
+    }
 }

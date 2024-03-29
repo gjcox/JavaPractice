@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MatrixTest {
-    Matrix m1, m1Copy, m2, m3;
+    Matrix m1, m1Copy, m2, m3, m4, identity2x2;
 
     @BeforeEach
     void initMatrix() {
@@ -29,6 +29,14 @@ public class MatrixTest {
                 new int[] { 11, 12 },
         });
         m3 = new Matrix(new int[][] {
+                new int[] { 3, 4 },
+                new int[] { 0, 1 },
+        });
+        m4 = new Matrix(new int[][] {
+                new int[] { -1, -2, -3 },
+                new int[] { -4, -5, -6 },
+        });
+        identity2x2 = new Matrix(new int[][] {
                 new int[] { 1, 0 },
                 new int[] { 0, 1 },
         });
@@ -90,5 +98,44 @@ public class MatrixTest {
     @Test
     void add_mismatchedDimenions_illegalArgumentsException() {
         assertThrows(IllegalArgumentException.class, () -> m1.add(m3));
+    }
+
+    @Test
+    void mult_mismatchedDimensions_illegalArgumentsExceptions() {
+        assertThrows(IllegalArgumentException.class, () -> m1.mult(m1));
+    }
+
+    @Test
+    void mult_m1_unchanged() {
+        m1.mult(m3);
+        assertEquals(m1Copy, m1);
+    }
+
+    @Test
+    void mult_m1AndIdentityMatrix_m1() {
+        Matrix dot = m1.mult(identity2x2);
+        assertEquals(m1Copy, dot);
+    }
+
+    @Test
+    void mult_m1Andm3_3by2() {
+        Matrix expected = new Matrix(new int[][] {
+                new int[] { 3, 6 },
+                new int[] { 9, 16 },
+                new int[] { 15, 26 },
+        });
+        Matrix dot = m1.mult(m3);
+        assertEquals(expected, dot);
+    }
+
+    @Test
+    void mult_m1Andm3_3by3() {
+        Matrix expected = new Matrix(new int[][] {
+                new int[] { -9, -12, -15 },
+                new int[] { -19, -26, -33 },
+                new int[] { -29, -40, -51 },
+        });
+        Matrix dot = m1.mult(m4);
+        assertEquals(expected, dot);
     }
 }
