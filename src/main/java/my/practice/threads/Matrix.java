@@ -62,13 +62,19 @@ public class Matrix {
         return builder.toString();
     }
 
-    public boolean equals(Matrix other) {
-        if (this.width != other.width || this.height != other.height) {
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof Matrix)) {
+            return false;
+        }
+        Matrix otherMatrix = (Matrix) other;
+
+        if (this.width != otherMatrix.width || this.height != otherMatrix.height) {
             return false;
         }
         for (int row = 0; row < this.height; row++) {
             for (int col = 0; col < this.width; col++) {
-                if (this.arr[row][col] != other.arr[row][col]) {
+                if (this.arr[row][col] != otherMatrix.arr[row][col]) {
                     return false;
                 }
             }
