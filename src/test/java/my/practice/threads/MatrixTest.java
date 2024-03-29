@@ -2,13 +2,14 @@ package my.practice.threads;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MatrixTest {
-    Matrix m1, m1Copy, m2;
+    Matrix m1, m1Copy, m2, m3;
 
     @BeforeEach
     void initMatrix() {
@@ -26,6 +27,10 @@ public class MatrixTest {
                 new int[] { 7, 8 },
                 new int[] { 9, 10 },
                 new int[] { 11, 12 },
+        });
+        m3 = new Matrix(new int[][] {
+                new int[] { 1, 0 },
+                new int[] { 0, 1 },
         });
     }
 
@@ -67,7 +72,7 @@ public class MatrixTest {
 
     @Test
     void add_m1AndM1_m1Unchanged() {
-        m1.add(m1); 
+        m1.add(m1);
         assertTrue(m1.equals(m1Copy));
     }
 
@@ -78,7 +83,12 @@ public class MatrixTest {
                 new int[] { 6, 8 },
                 new int[] { 10, 12 },
         });
-        Matrix sum = m1.add(m1); 
+        Matrix sum = m1.add(m1);
         assertTrue(expected.equals(sum));
+    }
+
+    @Test
+    void add_mismatchedDimenions_illegalArgumentsException() {
+        assertThrows(IllegalArgumentException.class, () -> m1.add(m3));
     }
 }
