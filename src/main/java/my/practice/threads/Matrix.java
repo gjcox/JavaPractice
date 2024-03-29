@@ -58,4 +58,9 @@ public class Matrix {
         }
         return true;
     }
+
+    public Matrix add(Matrix other) {
+        // TODO 
+        return null; 
+    }
 }

@@ -64,4 +64,21 @@ public class MatrixTest {
     void equals_m1AndM2_false() {
         assertFalse(m1.equals(m2));
     }
+
+    @Test
+    void add_m1AndM1_m1Unchanged() {
+        m1.add(m1); 
+        assertTrue(m1.equals(m1Copy));
+    }
+
+    @Test
+    void add_m1AndM1_doubleM1() {
+        Matrix expected = new Matrix(new int[][] {
+                new int[] { 2, 4 },
+                new int[] { 6, 8 },
+                new int[] { 10, 12 },
+        });
+        Matrix sum = m1.add(m1); 
+        assertTrue(expected.equals(sum));
+    }
 }
