@@ -21,7 +21,7 @@ public class Matrix {
         this.width = arr[0].length;
         for (int[] row : arr) {
             if (row.length != this.width) {
-                throw new IllegalArgumentException("Matrix rows must all the same length");
+                throw new IllegalArgumentException("Matrix rows must all be the same length");
             }
         }
     }
