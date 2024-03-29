@@ -1,4 +1,4 @@
-package my.practice;
+package my.practice.streams;
 
 import java.util.Comparator;
 import java.util.List;

@@ -1,4 +1,4 @@
-package my.practice;
+package my.practice.streams;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +12,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-class StreamsTest {
+public class StreamsTest {
 
     // Mean calculation tests
     @Test
