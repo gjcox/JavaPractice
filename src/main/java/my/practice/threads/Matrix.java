@@ -1,10 +1,27 @@
 package my.practice.threads;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Matrix {
     private static final int INT_PADDING = 2;
+    private static final Object threadPoolLock = new Object();
+
+    private static ExecutorService threadPool;
+
+    public static void setThreadPool(int nThreads) {
+        synchronized (threadPoolLock) {
+            threadPool = Executors.newFixedThreadPool(nThreads);
+        }
+    }
+
+    public static void shutdownThreadPool() {
+        synchronized (threadPoolLock) {
+            threadPool.shutdown();
+        }
+    }
 
     private final int height, width;
     private final int[][] arr;
@@ -76,4 +93,5 @@ public class Matrix {
         // TODO
         return null;
     }
+
 }
